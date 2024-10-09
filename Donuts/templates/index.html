@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+
+      .container {
+        width: 80%;
+        margin: 0 auto;
+      }
+
+      h1 {
+        text-align: center;
+        color: #2c683f;
+      }
+
+      .category-menu {
+        display: flex;
+        justify-content: center;
+        list-style-type: none;
+        padding: 0;
+      }
+
+      .category-menu li {
+        margin: 0 15px;
+        cursor: pointer;
+        color: #d72828;
+      }
+
+      .doughnuts {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 20px;
+        margin-top: 20px;
+      }
+
+      .doughnut-item {
+        text-align: center;
+      }
+
+      .doughnut-item img {
+        width: 100%;
+        height: auto;
+        border-radius: 50%;
+      }
+
+      .doughnut-item p {
+        margin-top: 10px;
+        font-weight: bold;
+      }
+    </style>
+
+    <div class="container">
+      <h1>DOUGHNUTS</h1>
+      <p style="text-align: center">Daily selection varies by shop</p>
+
+      <ul class="category-menu">
+        <li>All</li>
+        <li>Iced</li>
+        <li>Glazed</li>
+        <li>Filled</li>
+        <li>Cake</li>
+        <li>Chocolate</li>
+      </ul>
+
+      <div class="doughnuts">
+        <div class="doughnut-item">
+          <img src="/images/caramel-glazed.jpg" alt="Caramel Glazed Doughnut" />
+          <p>Caramel Glazed Doughnut</p>
+        </div>
+        <div class="doughnut-item">
+          <img
+            src="/images/salted-caramel-crunch.jpg"
+            alt="Salted Double Caramel Crunch Doughnut"
+          />
+          <p>Salted Double Caramel Crunch Doughnut</p>
+        </div>
+        <div class="doughnut-item">
+          <img src="/images/pumpkin-spice-cake.jpg" alt="Pumpkin Spice Cake" />
+          <p>Pumpkin Spice Cake</p>
+        </div>
+        <div class="doughnut-item">
+          <img
+            src="/images/reeses-classic.jpg"
+            alt="Reese's Classic Doughnut"
+          />
+          <p>Reese's Classic Doughnut</p>
+        </div>
+        <div class="doughnut-item">
+          <img src="/images/glazed.jpg" alt="Glazed Doughnut" />
+          <p>Glazed Doughnut</p>
+        </div>
+        <div class="doughnut-item">
+          <img
+            src="/images/chocolate-glazed.jpg"
+            alt="Chocolate Glazed Doughnut"
+          />
+          <p>Chocolate Glazed Doughnut</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
