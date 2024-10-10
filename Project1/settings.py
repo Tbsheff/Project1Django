@@ -76,10 +76,20 @@ WSGI_APPLICATION = 'Project1.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'mssql',
+        'NAME': 'paradisecompany', 
+        'USER': 'waterpolosucks',  
+        'PASSWORD': 'ThisisforIS531',  
+        'HOST': 'paradisecompany.database.windows.net', 
+        'PORT': '1433',  
+        'OPTIONS': {
+            'driver': 'ODBC Driver 18 for SQL Server',  # Make sure you have the appropriate driver installed
+            'extra_params': 'Encrypt=yes;TrustServerCertificate=no;',  # Encryption is required for Azure
+        }
     }
 }
+
+
 
 
 # Password validation
