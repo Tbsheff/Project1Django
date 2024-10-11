@@ -78,7 +78,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'mssql',
         'NAME': 'paradisecompany', 
-        'USER': 'waterpolosucks',  
+        'USER': 'waterpolosucks@paradisecompany',  
         'PASSWORD': 'ThisisforIS531',  
         'HOST': 'paradisecompany.database.windows.net', 
         'PORT': '1433',  
