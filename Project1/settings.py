@@ -84,7 +84,6 @@ DATABASES = {
         'PORT': '1433',  
         'OPTIONS': {
             'driver': 'ODBC Driver 18 for SQL Server',  # Make sure you have the appropriate driver installed
-            'extra_params': 'Encrypt=yes;TrustServerCertificate=no;',  # Encryption is required for Azure
         }
     }
 }
