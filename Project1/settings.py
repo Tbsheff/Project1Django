@@ -77,19 +77,17 @@ WSGI_APPLICATION = 'Project1.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'mssql',
-        'NAME': 'paradisecompany', 
-        'USER': 'waterpolosucks@paradisecompany',  
-        'PASSWORD': 'ThisisforIS531',  
-        'HOST': 'paradisecompany.database.windows.net', 
-        'PORT': '1433',  
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': os.getenv('DB_NAME', 'default_db_name'),
+        'USER': os.getenv('DB_USER', 'default_user'),
+        'PASSWORD': os.getenv('DB_PASSWORD', 'default_password'),
+        'HOST': os.getenv('DB_HOST', 'localhost'),
+        'PORT': os.getenv('DB_PORT', '3306'), 
         'OPTIONS': {
             'driver': 'ODBC Driver 18 for SQL Server',  # Make sure you have the appropriate driver installed
         }
     }
 }
-
-
 
 
 # Password validation
