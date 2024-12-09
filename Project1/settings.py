@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 import os
 from pathlib import Path
+from decouple import config
+
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -75,18 +78,10 @@ WSGI_APPLICATION = "Project1.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.getenv('DB_NAME', 'default_db_name'),
-        'USER': os.getenv('DB_USER', 'default_user'),
-        'PASSWORD': os.getenv('DB_PASSWORD', 'default_password'),
-        'HOST': os.getenv('DB_HOST', 'localhost'),
-        'PORT': os.getenv('DB_PORT', '3306'), 
-        'OPTIONS': {
-            'driver': 'ODBC Driver 18 for SQL Server',  # Make sure you have the appropriate driver installed
-        }
-    }
+DYNAMODB_SETTINGS = {
+    'AWS_REGION': config('AWS_REGION', default='us-west-2'),
+    'AWS_ACCESS_KEY_ID': config('AWS_ACCESS_KEY_ID', default=''),
+    'AWS_SECRET_ACCESS_KEY': config('AWS_SECRET_ACCESS_KEY', default=''),
 }
 
 

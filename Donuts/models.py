@@ -1,10 +1,15 @@
-from django.db import models
+from pynamodb.models import Model
+from pynamodb.attributes import UnicodeAttribute
 
-class Flavor(models.Model):
-    id = models.AutoField(primary_key=True)  
-    flavorname = models.CharField(max_length=100)  
-    img = models.URLField(max_length=255)  
+class Image(Model):
+    """
+    Represents the DynamoDB table for storing image metadata.
+    """
+    class Meta:
+        table_name = "images"  # Corrected table name
+        region = "us-west-2"  # Update with your AWS region
 
-    def __str__(self):
-        return self.flavorname  
-
+    image_id = UnicodeAttribute(hash_key=True)  # Corrected attribute name
+    name = UnicodeAttribute()
+    price = UnicodeAttribute()
+    url = UnicodeAttribute()

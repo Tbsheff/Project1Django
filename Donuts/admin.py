@@ -1,6 +1,6 @@
 # admin.py
 from django.contrib import admin
-from .models import Flavor
+from .models import Image
 
-admin.site.register(Flavor)
+admin.site.register(Image)
 
