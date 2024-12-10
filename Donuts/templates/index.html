@@ -73,15 +73,17 @@
     </ul>
 
     <div class="doughnuts">
-      {% for doughnut in flavors %}
+      {% for image in images %}
       <div class="doughnut-item">
-        <img src="{{ doughnut.img }}" alt="{{ doughnut.flavorname }}" />
-        <p>{{ doughnut.flavorname }}</p>
+        <img src="{{ image.url }}" alt="{{ image.name }}" />
+        <p>{{ image.name }}</p>
+        <p>${{ image.price }}</p>
       </div>
       {% empty %}
       <p>No doughnuts available</p> <!-- This will show if the queryset is empty -->
       {% endfor %}
     </div>
+    
 
   </div>
 </body>

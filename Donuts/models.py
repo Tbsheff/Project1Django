@@ -1,10 +1,21 @@
-from django.db import models
+from django.conf import settings
+from pynamodb.models import Model
+from pynamodb.attributes import UnicodeAttribute, NumberAttribute
 
-class Flavor(models.Model):
-    id = models.AutoField(primary_key=True)  
-    flavorname = models.CharField(max_length=100)  
-    img = models.URLField(max_length=255)  
+# Access settings for DynamoDB
+dynamodb_settings = settings.DYNAMODB_SETTINGS
 
-    def __str__(self):
-        return self.flavorname  
+class Image(Model):
+    """
+    Represents the DynamoDB table for storing image metadata.
+    """
+    class Meta:
+        table_name = "images"
+        region = dynamodb_settings['AWS_REGION']
+        aws_access_key_id = dynamodb_settings['AWS_ACCESS_KEY_ID']
+        aws_secret_access_key = dynamodb_settings['AWS_SECRET_ACCESS_KEY']
 
+    image_id = UnicodeAttribute(hash_key=True)
+    name = UnicodeAttribute()
+    price =  NumberAttribute()
+    url = UnicodeAttribute()

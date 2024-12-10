@@ -1,19 +1,22 @@
-
-# views.py
-
 from django.shortcuts import render
-from .models import Flavor
-
-# def home(request):
-#     return render(request, "index.html")
+from botocore.exceptions import BotoCoreError, ClientError  # Catch specific DynamoDB exceptions
+from .models import Image
 
 def index(request):
-    # Fetch all flavor objects from the database
-    flavors = Flavor.objects.all()
+    """
+    Fetch all image objects from the DynamoDB table and render them on the index page.
+    """
+    try:
+        # Attempt to fetch all images from the DynamoDB table
+        images = list(Image.scan())
+        print(f"Successfully fetched {len(images)} images.")
+    except (BotoCoreError, ClientError) as e:
+        # Handle AWS-specific errors
+        print(f"AWS error while fetching images: {str(e)}")
+        images = []
+    except Exception as e:
+        # Handle any other exceptions
+        print(f"Unexpected error: {str(e)}")
+        images = []
 
-    # Debugging: print to console to verify data retrieval
-    print(flavors)  # This should output something like <QuerySet [<Flavor: Glazed Doughnut>, ...]>
-    
-    return render(request, 'index.html', {'flavors': flavors})
-
-
+    return render(request, 'index.html', {'images': images})
