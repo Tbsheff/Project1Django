@@ -4,3 +4,9 @@
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
+.env
+__pycache__/
+*.pyc
+Donuts/__pycache__/admin.cpython-311.pyc
+Donuts/__pycache__/models.cpython-311.pyc
+
