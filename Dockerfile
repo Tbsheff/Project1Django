@@ -19,10 +19,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy the Django project files into the container
 COPY . .
 
-# Copy the test script into the container
-COPY dynamodb_test_connection.py /app/
-
-
 # Expose the application port
 EXPOSE 8000
 
