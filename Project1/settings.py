@@ -79,7 +79,7 @@ WSGI_APPLICATION = "Project1.wsgi.application"
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DYNAMODB_SETTINGS = {
-    'AWS_REGION': config('AWS_REGION', default='us-west-2'),
+    'AWS_REGION': config('AWS_REGION', default='us-east-2'),
     'AWS_ACCESS_KEY_ID': config('AWS_ACCESS_KEY_ID', default=''),
     'AWS_SECRET_ACCESS_KEY': config('AWS_SECRET_ACCESS_KEY', default=''),
 }
