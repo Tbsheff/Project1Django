@@ -1,6 +1,6 @@
 from django.conf import settings
 from pynamodb.models import Model
-from pynamodb.attributes import UnicodeAttribute
+from pynamodb.attributes import UnicodeAttribute, NumberAttribute
 
 # Access settings for DynamoDB
 dynamodb_settings = settings.DYNAMODB_SETTINGS
@@ -17,5 +17,5 @@ class Image(Model):
 
     image_id = UnicodeAttribute(hash_key=True)
     name = UnicodeAttribute()
-    price = UnicodeAttribute()
+    price =  NumberAttribute()
     url = UnicodeAttribute()
